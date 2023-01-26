@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+        <title> GD Online Grocer </title>
+        <!-- Fonts and icons -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- Font Awesome Icons -->
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap 5 css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script defer src="/assets/js/utils.js"></script>
+        <!--shopping body css file link-->
+        <link rel="stylesheet" href="/assets/css/shopping_body.css">
+        <!--Swiper css file link-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+        <script> let info = <%- JSON.stringify(info) %> ; </script>
+      </head>
+    <body>
+    
+      <!-- header section starts -->
+      <header class="header">
+
+        <a href="/shopping" class="logo"> <i class="fas fa-shopping-basket"></i>GD Grocer</a>
+        <nav class="navbar">
+          <% if (info.user.role == 'admin' && info.page != 'admin') { %>
+            <a href="/admin">Admin</a>
+          <% } %>
+          <% if (info.page == 'admin' || info.page == 'new') { %>
+            <a href="/shopping">Shopping</a>
+          <% } %>
+          <% if (info.page == 'shopping') { %>
+            <div class="dropdown">
+              <a id="cartBtn" class="fas fa-shopping-cart"></a>
+            </div>
+          <% } %>
+          <a href="/users/logout" class="fas fa-sign-out-alt"></a>
+        </nav>
+
+      </header>
+      <!-- header section ends -->
+
+      <%- body %>
+      <%- include ('../partials/toast') %>
+
+      <!-- Bootstrap 5 bundle -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    </body>
+</html>

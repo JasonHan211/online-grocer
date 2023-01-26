@@ -1,0 +1,7 @@
+<% let item = info.item %>
+<input type="text" name="name" placeholder="Name" value="<%= typeof item.name != 'undefined' ? item.name : '' %>">
+<input type="text" name="description" placeholder="Description" value="<%= typeof item.description != 'undefined' ? item.description : '' %>">
+<input type="number" name="price" placeholder="Price" step="0.01" value="<%= typeof item.price != 'undefined' ? item.price : '' %>">
+<input type="number" name="stock" placeholder="Stock" value="<%= typeof item.stock != 'undefined' ? item.stock : '' %>">
+<input type="text" name="thumbnail" placeholder="thumbnail link" value="<%= typeof item.thumbnail != 'undefined' ? item.thumbnail : '' %>">
+<button type="submit">Submit</button>
